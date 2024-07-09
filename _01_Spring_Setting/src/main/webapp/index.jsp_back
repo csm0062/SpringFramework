@@ -1,0 +1,8 @@
+<!--jsp 선언문-->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<body>
+    <h2>절미는 귀요미야!절미는 귀요밍!</h2>
+    <img src="${pageContext.request.contextPath}/images/bit.png">
+</body>
+</html>
