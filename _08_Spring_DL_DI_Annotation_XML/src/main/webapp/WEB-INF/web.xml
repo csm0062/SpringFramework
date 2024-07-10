@@ -45,9 +45,8 @@
 
   <servlet-mapping>
     <servlet-name>appServlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/app/</url-pattern>
   </servlet-mapping>
-
   <!--filter 관련 설정-->
   <!--사용자가 보낸 요청을 DispatcherServlet이 처리하기 전에 거치는 객체가 Filter 객체이다.
       스프링 시큐리티 필터가 적용되어 있다면 인가 및 인증이 먼저 처리되고

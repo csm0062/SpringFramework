@@ -15,5 +15,6 @@
     <!--jsp 파일에 데이터 바인딩은 model 객체에 담긴 키값으로 매핑을 하고 el표기법을 사용한다.-->
     <p>name: ${name}</p>
     <p>language: ${language}</p>
+<%--<form action="/test" method=""></form>--%>
 </body>
 </html>
