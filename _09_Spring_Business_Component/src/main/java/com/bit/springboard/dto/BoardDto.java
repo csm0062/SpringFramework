@@ -2,6 +2,12 @@ package com.bit.springboard.dto;
 
 import java.time.LocalDateTime;
 
+// DTO(Data Transfer Object): 데이터를 전송하는 객체
+//                            화면에서 넘어오는 데이터를 받아서 DB 까지 전달하거나
+//                            컨트롤러에서 화면으로 데이터를 전송할 때 사용하는 객체
+//                            VO(Value Object)랑 쓰임새가 비슷하다.
+
+//GETTER & SETTER $ TOSTRING
 public class BoardDto {
     private int id;
     private String title;
