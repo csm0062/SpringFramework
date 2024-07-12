@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberRowMapper implements RowMapper<MemberDto> {
-
     @Override
     public MemberDto mapRow(ResultSet rs, int rowNum) {
         System.out.println("MemberRowMapper의 mapRow 메소드 실행");
@@ -23,6 +22,7 @@ public class MemberRowMapper implements RowMapper<MemberDto> {
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         }
+        
         return memberDto;
     }
 }
