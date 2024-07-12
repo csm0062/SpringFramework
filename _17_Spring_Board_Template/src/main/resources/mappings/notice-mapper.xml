@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        PUBLIC "-//mabatis.org//DTO Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="NoticeDao">
-    <insert id="post" parameterType="board">
+    <insert id="post" parameterType="notice">
         INSERT INTO NOTICE(
             TITLE,
             CONTENT,
@@ -14,17 +16,14 @@
             #{WRITER_ID}
         )
     </insert>
-
-    <update id="modify" parameterType="board">
+    <update id="modify" parameterType="notice">
         UPDATE NOTICE
-            SET
-                TITLE = #{title},
-                CONTENT = #{content},
-                MODDATE = #{moddate}
-            WHERE ID = #{id}
+        SET TITLE = #{title},
+            CONTENT = #{content},
+            MODDATE = #{moddate}
+        WHERE ID = #{id}
     </update>
-
-    <select id="getNoticeList" resultType="board">
+    <select id="getNoticeList" resultType="notice">
         SELECT N.ID
              , N.TITLE
              , N.CONTENT
@@ -37,13 +36,11 @@
             JOIN MEMBER M
               ON N.WRITER_ID = M.ID
     </select>
-
     <delete id="delete" parameterType="int">
         DELETE FROM NOTICE
             WHERE ID = #{id}
     </delete>
-
-    <select id="getNotice" parameterType="int" resultType="board">
+    <select id="getNotice" parameterType="int" resultType="notice">
         SELECT N.ID
              , N.TITLE
              , N.CONTENT
@@ -52,9 +49,10 @@
              , N.REGDATE
              , N.MODDATE
              , N.CNT
-            FROM NOTICE N
-            JOIN MEMBER M
-              ON N.WRITER_ID = M.ID
-            WHERE N.ID = #{id}
+        FROM NOTICE N
+        JOIN MEMBER M
+          ON N.WRITER_ID = M.ID
+        WHERE N.ID = #{id}
     </select>
+
 </mapper>

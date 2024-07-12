@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: csm00
+  User: bitcamp
   Date: 24. 7. 12.
   Time: 오후 5:15
   To change this template use File | Settings | File Templates.
@@ -8,11 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <title>Title</title>
 </head>
 <body>
     <div class="wrapper">
         <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
+
         <main>
             <div class="container mt-5 w-50">
                 <h4>자유게시판</h4>
@@ -154,16 +155,17 @@
             </nav>
 
             <div class="container mt-3 mb-5 w-50 d-flex justify-content-end">
-                <button type="button" class="btn btn-outline-secondary" onclick="location.href='post.html'">글 등록</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='post.do'">글 등록</button>
             </div>
         </main>
 
         <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
+
     </div>
     <script>
         $(() => {
             $(".board-tr").on("click", (e) => {
-                window.location.href = "free-detail.html";
+                window.location.href = "free-detail.do";
             })
         });
     </script>

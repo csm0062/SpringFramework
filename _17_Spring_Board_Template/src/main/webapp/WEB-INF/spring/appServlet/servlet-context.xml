@@ -47,4 +47,11 @@
         요청이 올때마다 생성될 수 있게 설정한다.-->
     <context:component-scan base-package="com.bit.springboard.controller"/>
 
+
+
+
+
+
+
+
 </beans>

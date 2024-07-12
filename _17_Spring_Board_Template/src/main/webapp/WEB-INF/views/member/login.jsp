@@ -2,17 +2,17 @@
   Created by IntelliJ IDEA.
   User: bitcamp
   Date: 24. 7. 12.
-  Time: 오후 5:02
+  Time: 오후 5:03
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-
+    <title>Title</title>
 </head>
 <body>
     <div>
-        <!--pageContext.request.contextPath: WebServer의 root path인 webapp 폴더(http://localhost:8090)-->
+        <!--pageContext.request.contextPath: WebServer의 root path인 webapp 폴더(http://lovalhost:8090-->
         <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
 
         <main>
@@ -36,7 +36,7 @@
             </div>
         </main>
 
-        <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
+        <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
     </div>
 </body>
 </html>

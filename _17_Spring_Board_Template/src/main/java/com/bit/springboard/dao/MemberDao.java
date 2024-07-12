@@ -13,7 +13,7 @@ public class MemberDao {
     private SqlSessionTemplate mybatis;
 
     @Autowired
-    public MemberDao(SqlSessionTemplate sqlSessionTemplate) {
+    public void MemberDao(SqlSessionTemplate sqlSessionTemplate) {
         this.mybatis = sqlSessionTemplate;
     }
 
@@ -29,12 +29,24 @@ public class MemberDao {
     public List<MemberDto> getMembers() {
         System.out.println("MemberDao의 getMembers 메소드 실행");
 
-        return mybatis.selectList("MemberDao.getMembers");
+//        List<MemberDto> memberDtoList = new ArrayList<>();
+//
+//        memberDtoList = mybatis.selectList("MemberDao.getMemberList");
+//
+//        System.out.println("MemberDao의 getMembers 메소드 실행 종료");
+//        return memberDtoList;
+        return mybatis.selectList("MemberDao.getMemberList");
     }
 
     public MemberDto getMemberByUsername(String username) {
         System.out.println("MemberDao의 getMemberByUsername 메소드 실행");
 
-        return mybatis.selectOne("MemberDao.getMemberByUsername", username);
+//        MemberDto returnMemberDto = new MemberDto();
+//
+//        returnMemberDto = mybatis.selectOne("MemberDao.getMember", username);
+//
+//        System.out.println("MemberDao의 getMemberByUsername 메소드 실행 종료");
+//        return returnMemberDto;
+        return mybatis.selectOne("MemberDao.getMember", username);
     }
 }

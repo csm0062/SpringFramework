@@ -15,44 +15,14 @@ public class FreeBoardDao {
     private SqlSessionTemplate mybatis;
 
     @Autowired
-    public FreeBoardDao(SqlSessionTemplate sqlSessionTemplate) {
+    public void FreeBoardDao(SqlSessionTemplate sqlSessionTemplate) {
         this.mybatis = sqlSessionTemplate;
     }
-
-    private final String GET_BOARD_LIST = "SELECT F.ID" +
-            "                                   , F.TITLE" +
-            "                                   , F.CONTENT" +
-            "                                   , F.WRITER_ID" +
-            "                                   , M.NICKNAME" +
-            "                                   , F.REGDATE" +
-            "                                   , F.MODDATE" +
-            "                                   , F.CNT" +
-            "                                  FROM FREEBOARD F" +
-            "                                  JOIN MEMBER M" +
-            "                                    ON F.WRITER_ID = M.ID";
-
-    // 게시글 삭제
-    private final String DELETE = "DELETE FROM FREEBOARD" +
-            "                           WHERE ID = ?";
-
-    // 특정 id의 게시글 하나만 조회
-    private final String GET_BOARD = "SELECT F.ID" +
-            "                                   , F.TITLE" +
-            "                                   , F.CONTENT" +
-            "                                   , F.WRITER_ID" +
-            "                                   , M.NICKNAME" +
-            "                                   , F.REGDATE" +
-            "                                   , F.MODDATE" +
-            "                                   , F.CNT" +
-            "                                  FROM FREEBOARD F" +
-            "                                  JOIN MEMBER M" +
-            "                                    ON F.WRITER_ID = M.ID" +
-            "                                  WHERE F.ID = ?";
 
     public void post(BoardDto boardDto) {
         System.out.println("FreeBoardDao의 post 메소드 실행");
 
-        mybatis.insert(/*쿼리문의 호출은 Mapper.xml 파일의 namespace값.쿼리문의 id*/"FreeBoardDao.post", boardDto);
+        mybatis.insert(/*쿼리문의 호출은 Mapper.xml 파일의 namespace값. 쿼리문의 id*/"FreeBoardDao.post", boardDto);
 
         System.out.println("FreeBoardDao의 post 메소드 실행 종료");
     }
@@ -70,7 +40,7 @@ public class FreeBoardDao {
 
         List<BoardDto> boardDtoList = new ArrayList<>();
 
-        // SqlSessionTemplate의 selectList메소드 사용
+        // SqlSesstionTemplate의 selectList 메소드 사용
         boardDtoList = mybatis.selectList("FreeBoardDao.getBoardList");
 
         System.out.println("FreeBoardDao의 getBoardList 메소드 실행 종료");
@@ -90,7 +60,8 @@ public class FreeBoardDao {
 
         BoardDto boardDto = new BoardDto();
 
-        // SqlSessionTemplate의 selectOne메소드 사용
+        // SqlSesstionTemplate의 selectOne 메소드 사용
+
         boardDto = mybatis.selectOne("FreeBoardDao.getBoard", id);
 
         System.out.println("FreeBoardDao의 getBoard 메소드 실행 종료");

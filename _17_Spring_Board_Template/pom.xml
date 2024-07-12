@@ -124,7 +124,6 @@
             <artifactId>mysql-connector-j</artifactId>
             <version>8.3.0</version>
         </dependency>
-
         <!--JDBC Template 의존성 주입-->
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
         <dependency>
@@ -140,13 +139,14 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.16</version>
         </dependency>
-
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>3.0.3</version>
         </dependency>
+
+
     </dependencies>
     <build>
         <plugins>

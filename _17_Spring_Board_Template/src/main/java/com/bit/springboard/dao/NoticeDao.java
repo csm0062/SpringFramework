@@ -5,6 +5,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -12,7 +13,7 @@ public class NoticeDao {
     private SqlSessionTemplate mybatis;
 
     @Autowired
-    public NoticeDao(SqlSessionTemplate sqlSessionTemplate) {
+    public void NoticeDao(SqlSessionTemplate sqlSessionTemplate) {
         this.mybatis = sqlSessionTemplate;
     }
 
@@ -35,7 +36,12 @@ public class NoticeDao {
     public List<BoardDto> getNoticeList() {
         System.out.println("NoticeDao의 getNoticeList 메소드 실행");
 
-        return mybatis.selectList("NoticeDao.getNoticeList");
+        List<BoardDto> noticeList = new ArrayList<>();
+
+        noticeList = mybatis.selectList("NoticeDao.getNoticeList");
+
+        System.out.println("NoticeDao의 getNoticeList 메소드 실행 종료");
+        return noticeList;
     }
     
     public void delete(int id) {
@@ -49,6 +55,11 @@ public class NoticeDao {
     public BoardDto getNotice(int id) {
         System.out.println("NoticeDao의 getNotice 메소드 실행");
 
-        return mybatis.selectOne("NoticeDao.getNotice", id);
+        BoardDto boardDto = new BoardDto();
+
+        boardDto = mybatis.selectOne("NoticeDao.getNotice", id);
+
+        System.out.println("NoticeDao의 getNotice 메소드 실행 종료");
+        return boardDto;
     }
 }

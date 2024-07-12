@@ -12,6 +12,7 @@ import java.util.List;
 public class FreeBoardServiceImpl implements BoardService {
     private FreeBoardDao freeBoardDao;
 
+
     @Autowired
     public FreeBoardServiceImpl(FreeBoardDao freeBoardDao) {
         this.freeBoardDao = freeBoardDao;
@@ -20,10 +21,11 @@ public class FreeBoardServiceImpl implements BoardService {
 
     @Override
     public void post(BoardDto boardDto) {
-//        if(boardDto.getId() == 0) {
+//        if (boardDto.getId() == 0) {
 //            throw new RuntimeException("id에 0은 입력될 수 없습니다.");
 //        }
         freeBoardDao.post(boardDto);
+
     }
 
     @Override
