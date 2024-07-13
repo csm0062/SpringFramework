@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/board")
 public class BoardController {
+    
     @GetMapping("/free-list.do")
     public String freeListView() {
         return "board/free-list";
