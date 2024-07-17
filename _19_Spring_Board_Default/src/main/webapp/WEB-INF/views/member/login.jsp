@@ -40,12 +40,12 @@
     </div>
     <script>
         $(() => {
-            // model, session, request에 담겨있는 데이터 javascript에서 꺼내서 사용학
-            const loginFailMsg = '${loginFailMsg}'; //키값으로 꺼낸다.
+            // model, session, request에 담겨있는 데이터 javascript에서 꺼내서 사용하기
+            const loginFailMsg = '${loginFailMsg}';
 
             if(loginFailMsg === 'idNotExist') {
-                alert("존재하지 않는 아이디입니다.")
-            } else if(loginFailMsg == 'wrongPassword') {
+                alert("존재하지 않는 아이디입니다.");
+            } else if(loginFailMsg === 'wrongPassword') {
                 alert("잘못된 비밀번호입니다.");
             }
         });

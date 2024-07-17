@@ -51,4 +51,9 @@ public class NoticeDao {
 
         return mybatis.selectOne("NoticeDao.getNotice", id);
     }
+
+
+    public void updateHits(int id) {
+        mybatis.update("NoticeDao.updateHits", id);
+    }
 }

@@ -6,6 +6,7 @@ import com.bit.springboard.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -17,7 +18,6 @@ public class FreeBoardServiceImpl implements BoardService {
         this.freeBoardDao = freeBoardDao;
     }
 
-
     @Override
     public void post(BoardDto boardDto) {
 //        if(boardDto.getId() == 0) {
@@ -28,6 +28,7 @@ public class FreeBoardServiceImpl implements BoardService {
 
     @Override
     public void modify(BoardDto boardDto) {
+        boardDto.setModdate(LocalDateTime.now());
         freeBoardDao.modify(boardDto);
     }
 
@@ -43,6 +44,12 @@ public class FreeBoardServiceImpl implements BoardService {
 
     @Override
     public BoardDto getBoard(int id) {
+//        freeBoardDao.updateHits(id); // 조회수 증가
         return freeBoardDao.getBoard(id);
     }
+    @Override
+    public void updateHits(int id) {
+        freeBoardDao.updateHits(id);
+    }
+
 }

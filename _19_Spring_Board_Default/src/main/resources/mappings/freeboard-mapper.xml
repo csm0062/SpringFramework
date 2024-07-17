@@ -62,4 +62,11 @@
               ON F.WRITER_ID = M.ID
             WHERE F.ID = #{id}
     </select>
+
+    <!-- 조회수 올리기 -->
+    <update id="updateHits" parameterType="int">
+        UPDATE FREEBOARD
+            SET CNT = CNT + 1
+            WHERE ID = #{id}
+    </update>
 </mapper>

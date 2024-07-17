@@ -107,9 +107,8 @@ public class MemberServiceImpl implements MemberService {
     public MemberDto login(MemberDto memberDto) {
         int usernameCheck = memberDao.usernameCheck(memberDto.getUsername());
 
-        if(usernameCheck == 0) {
+        if(usernameCheck == 0)
             throw new RuntimeException("idNotExist");
-        }
 
         MemberDto loginMember = memberDao.login(memberDto);
 
@@ -118,6 +117,4 @@ public class MemberServiceImpl implements MemberService {
 
         return loginMember;
     }
-
-
 }

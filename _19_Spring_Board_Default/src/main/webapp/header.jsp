@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -30,15 +30,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/board/notice-list.do">공지사항</a>
                     </li>
-
                     <c:choose>
                         <c:when test="${loginMember eq null}">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/member/login.do">로그인</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/member/join.do">회원가입</a>
-                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/member/login.do">로그인</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/member/join.do">회원가입</a>
+                            </li>
                         </c:when>
                         <c:otherwise>
                             <li class="nav-item">

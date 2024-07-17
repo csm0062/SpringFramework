@@ -13,8 +13,8 @@
             #{content},
             (
                 SELECT M.ID
-                FROM MEMBER M
-                WHERE M.NICKNAME = #{nickname}
+                    FROM MEMBER M
+                    WHERE M.NICKNAME = #{nickname}
             )
         )
     </insert>
@@ -61,4 +61,9 @@
               ON N.WRITER_ID = M.ID
             WHERE N.ID = #{id}
     </select>
+    <update id="updateHits" parameterType="int">
+        UPDATE NOTICE
+        SET CNT = CNT + 1
+        WHERE ID = #{id}
+    </update>
 </mapper>

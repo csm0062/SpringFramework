@@ -16,21 +16,19 @@
         <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
 
         <main>
-
             <div class="container w-50 mt-5 mb-5">
                 <h4>글 등록</h4>
             </div>
-
             <div class="container mt-3 w-50">
                 <form id="post-form" action="/board/post.do" method="post">
                     <c:if test="${loginMember.role eq 'ADMIN'}">
-                    <div class="form-group">
-                        <label for="type">카테고리</label>
-                        <select class="form-select" name="type" id="type">
-                            <option value="free" selected>자유게시판</option>
-                            <option value="notice">공지사항</option>
-                        </select>
-                    </div>
+                        <div class="form-group">
+                            <label for="type">카테고리</label>
+                            <select class="form-select" name="type" id="type">
+                                <option value="free" selected>자유게시판</option>
+                                <option value="notice">공지사항</option>
+                            </select>
+                        </div>
                     </c:if>
                     <div class="form-group mt-3">
                         <label for="title">제목</label>

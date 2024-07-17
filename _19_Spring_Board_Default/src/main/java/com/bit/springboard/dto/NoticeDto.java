@@ -3,7 +3,6 @@ package com.bit.springboard.dto;
 import java.time.LocalDateTime;
 
 public class NoticeDto {
-
     private int id;
     private String title;
     private String content;

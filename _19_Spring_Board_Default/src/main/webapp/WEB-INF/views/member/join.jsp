@@ -36,7 +36,7 @@
                     </div>
                     <div class="form-group mt-3">
                         <label for="password-confirm">비밀번호 확인</label>
-                        <input type="password" class="form-control" id="password-confirm" name="passwordChk" required>
+                        <input type="password" class="form-control" id="password-confirm" name="password-confirm" required>
                         <p id="password-confirm-result" style="font-size: 0.8rem;"></p>
                     </div>
                     <div class="form-group mt-3">
@@ -164,40 +164,34 @@
                 $("#btn-nickname-check").attr("disabled", false);
             });
 
-            ////////////////////////////
-            // 비밀번호 유효성 검사 메소드 //
-            ////////////////////////////
+            // 비밀번호 유효성 검사 메소드
             const validatePassword = (pw) => {
                 return /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*+=-]).{9,}$/.test(pw);
             }
 
             // 비밀번호 input의 내용이 변경되면 validatePassword 메소드로 유효성 검사 진행
             $("#password").on("change", (e) => {
-                if(validatePassword($("#password").val())) {
-                    passwordCheck = true;
-                    $("#password-check").hide();
-                } else {
-                    passwordCheck = false;
-                    $("#password-check").show();
-                }
+                console.log(validatePassword($("#password").val()));
+               if(validatePassword($("#password").val())) {
+                   passwordCheck = true;
+                   $("#password-check").hide();
+               } else {
+                   passwordCheck = false;
+                   $("#password-check").show();
+               }
 
                 if($("#password").val() === $("#password-confirm").val()) {
                     passwordConfirm = true;
                     $("#password-confirm-result").text("비밀번호가 일치합니다.");
                     $("#password-confirm-result").css("color", "green");
-                    return;
                 } else {
                     passwordConfirm = false;
                     $("#password-confirm-result").text("비밀번호가 일치하지 않습니다.");
                     $("#password-confirm-result").css("color", "red");
                 }
-
             });
 
-
-            ////////////////////////////
-            // 비밀번호 일치 확인 메소드  //
-            ////////////////////////////
+            // 비밀번호 확인
             $("#password-confirm").on("change", (e) => {
                 $("#password-confirm-result").show();
 
@@ -206,29 +200,28 @@
                     $("#password-confirm-result").text("비밀번호가 일치합니다.");
                     $("#password-confirm-result").css("color", "green");
                     return;
-                } else {
-                    passwordConfirm = false;
-                    $("#password-confirm-result").text("비밀번호가 일치하지 않습니다.");
-                    $("#password-confirm-result").css("color", "red");
                 }
+
+                passwordConfirm = false;
+                $("#password-confirm-result").text("비밀번호가 일치하지 않습니다.");
+                $("#password-confirm-result").css("color", "red");
             });
 
-            // 회원가입
             $("#join-form").on("submit", (e) => {
                 // id 중복체크가 되지 않았을 때
                 if(!idCheck) {
                     e.preventDefault();
-                    alert("아이디 중복체크를 진행하세요");
+                    alert("아이디 중복체크를 진행하세요.");
                     return;
                 }
-                // password 중복 체크가 되지 않았을 때
+
                 if(!passwordCheck) {
                     e.preventDefault();
                     alert("비밀번호는 영문자, 숫자, 특수문자 조합의 9자리 이상으로 지정하세요.");
                     return;
                 }
 
-                if(!passwordConfirm)  {
+                if(!passwordConfirm) {
                     e.preventDefault();
                     alert("비밀번호가 일치하지 않습니다.");
                     return;
@@ -239,9 +232,7 @@
                     alert("닉네임 중복체크를 진행하세요.");
                     return;
                 }
-
             });
-
 
         });
 

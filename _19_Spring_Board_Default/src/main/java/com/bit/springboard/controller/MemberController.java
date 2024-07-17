@@ -50,7 +50,7 @@ public class MemberController {
     @PostMapping("/join.do")
     public String join(MemberDto memberDto) {
         memberService.join(memberDto);
-        return "/member/login";
+        return "member/login";
     }
 
     @PostMapping("/login.do")
@@ -58,13 +58,12 @@ public class MemberController {
         try {
             MemberDto loginMember = memberService.login(memberDto);
 
-            loginMember.setPassword(""); //세션에 password를 담아두면 해킹의 위험이있기때문에 빈칸으로 돌려둔다.
+            loginMember.setPassword("");
 
             session.setAttribute("loginMember", loginMember);
 
-            return "redirect:/"; //main페이지로 갈 수 있게 리타이렉트를 한다.
+            return "redirect:/";
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             model.addAttribute("loginFailMsg", e.getMessage());
             return "member/login";
         }
@@ -77,4 +76,17 @@ public class MemberController {
 
         return "redirect:/member/login.do";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

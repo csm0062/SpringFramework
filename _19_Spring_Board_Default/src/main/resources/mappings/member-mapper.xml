@@ -61,7 +61,7 @@
              , TEL
              , ROLE
             FROM MEMBER
-            WHERE USERNAME= #{username}
+            WHERE USERNAME = #{username}
               AND PASSWORD = #{password}
     </select>
 </mapper>

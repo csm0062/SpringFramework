@@ -96,4 +96,10 @@ public class FreeBoardDao {
         System.out.println("FreeBoardDao의 getBoard 메소드 실행 종료");
         return boardDto;
     }
+
+    public void updateHits(int id) {
+        mybatis.update("FreeBoardDao.updateHits", id);
+    }
+
+
 }
