@@ -1,14 +1,15 @@
 <%--
-    Created by IntelliJ IDEA.
-    User: bitcamp
-    Date: 24. 7. 12.
-    Time: 오후 5:48
-    To change this template use File | Settings | File Templates.
+  Created by IntelliJ IDEA.
+  User: bitcamp
+  Date: 24. 7. 15.
+  Time: 오전 9:42
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
 <head>
-    <title>Title</title>
+
 </head>
 <body>
     <div>
@@ -110,13 +111,15 @@
                 </form>
             </div>
 
+            <c:if test="${loginMember ne null and loginMember.role eq 'ADMIN'}">
+<%--                <c:if test="${loginMember != null && loginMember.role == 'ADMIN'}">--%>
             <div class="container mt-3 mb-5 w-50 d-flex justify-content-end">
                 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/board/post.do'">글 등록</button>
             </div>
+            </c:if>
         </main>
 
         <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
     </div>
-
 </body>
 </html>

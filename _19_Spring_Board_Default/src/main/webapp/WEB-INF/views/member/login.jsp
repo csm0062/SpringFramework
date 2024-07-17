@@ -2,17 +2,17 @@
   Created by IntelliJ IDEA.
   User: bitcamp
   Date: 24. 7. 12.
-  Time: 오후 5:03
+  Time: 오후 5:02
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+
 </head>
 <body>
     <div>
-        <!--pageContext.request.contextPath: WebServer의 root path인 webapp 폴더(http://lovalhost:8090-->
+        <!--pageContext.request.contextPath: WebServer의 root path인 webapp 폴더(http://localhost:8090)-->
         <jsp:include page="${pageContext.request.contextPath}/header.jsp"></jsp:include>
 
         <main>
@@ -20,7 +20,7 @@
                 <h4>로그인</h4>
             </div>
             <div class="container mt-4 mb-5 w-25">
-                <form id="loginForm" action="/user/login.do" method="post">
+                <form id="login-form" action="/member/login.do" method="post">
                     <div class="form-group">
                         <label for="username">아이디</label>
                         <input type="text" class="form-control" id="username" name="username" required>
@@ -38,5 +38,17 @@
 
         <jsp:include page="${pageContext.request.contextPath}/footer.jsp"></jsp:include>
     </div>
+    <script>
+        $(() => {
+            // model, session, request에 담겨있는 데이터 javascript에서 꺼내서 사용학
+            const loginFailMsg = '${loginFailMsg}'; //키값으로 꺼낸다.
+
+            if(loginFailMsg === 'idNotExist') {
+                alert("존재하지 않는 아이디입니다.")
+            } else if(loginFailMsg == 'wrongPassword') {
+                alert("잘못된 비밀번호입니다.");
+            }
+        });
+    </script>
 </body>
 </html>
