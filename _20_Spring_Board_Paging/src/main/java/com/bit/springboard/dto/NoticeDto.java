@@ -2,25 +2,15 @@ package com.bit.springboard.dto;
 
 import java.time.LocalDateTime;
 
-public class BoardDto {
-    private String type = "free";
+public class NoticeDto {
     private int id;
     private String title;
     private String content;
-    private int WRITER_ID;
+    private int WRIETER_ID;
     private String nickname;
-    // 'yyyy-MM-ddTHH:mm:ss' => 이 형태의 값이 넘어와야 된다.
     private LocalDateTime regdate;
     private LocalDateTime moddate;
     private int cnt;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public int getId() {
         return id;
@@ -46,12 +36,12 @@ public class BoardDto {
         this.content = content;
     }
 
-    public int getWRITER_ID() {
-        return WRITER_ID;
+    public int getWRIETER_ID() {
+        return WRIETER_ID;
     }
 
-    public void setWRITER_ID(int WRITER_ID) {
-        this.WRITER_ID = WRITER_ID;
+    public void setWRIETER_ID(int WRIETER_ID) {
+        this.WRIETER_ID = WRIETER_ID;
     }
 
     public LocalDateTime getRegdate() {
@@ -88,11 +78,11 @@ public class BoardDto {
 
     @Override
     public String toString() {
-        return "BoardDto{" +
+        return "NoticeDto{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", WRITER_ID=" + WRITER_ID +
+                ", WRIETER_ID=" + WRIETER_ID +
                 ", nickname='" + nickname + '\'' +
                 ", regdate=" + regdate +
                 ", moddate=" + moddate +
