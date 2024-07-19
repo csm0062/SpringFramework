@@ -2,11 +2,13 @@ package com.bit.springboard.service.impl;
 
 import com.bit.springboard.dao.NoticeDao;
 import com.bit.springboard.dto.BoardDto;
+import com.bit.springboard.dto.Criteria;
 import com.bit.springboard.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -36,8 +38,11 @@ public class NoticeServiceImpl implements BoardService {
     }
 
     @Override
-    public List<BoardDto> getBoardList(Map<String, String> searchMap) {
-        return noticeDao.getNoticeList(searchMap);
+    public List<BoardDto> getBoardList(Map<String, String> searchMap, Criteria cri) {
+        Map<String, Object> paramMap = new HashMap<>();
+        paramMap.put("search", searchMap);
+        paramMap.put("cri", cri);
+        return noticeDao.getNoticeList(paramMap);
     }
 
     @Override
@@ -46,7 +51,12 @@ public class NoticeServiceImpl implements BoardService {
     }
 
     @Override
-    public void updateHits(int id) {
-        noticeDao.updateHits(id);
+    public void updateCnt(int id) {
+        noticeDao.updateCnt(id);
+    }
+
+    @Override
+    public int getBoardTotalCnt(Map<String, String> searchMap) {
+        return noticeDao.getBoardTotalCnt(searchMap);
     }
 }
