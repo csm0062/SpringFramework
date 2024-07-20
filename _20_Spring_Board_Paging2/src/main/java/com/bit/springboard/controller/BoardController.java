@@ -88,8 +88,11 @@ public class BoardController {
 
     @GetMapping("/notice-detail.do")
     public String noticeDetailView(BoardDto boardDto, Model model) {
+
         boardService = applicationContext.getBean("noticeServiceImpl", BoardService.class);
+
         model.addAttribute("notice", boardService.getBoard(boardDto.getId()));
+        
         return "board/notice-detail";
     }
 
