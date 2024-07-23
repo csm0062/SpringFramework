@@ -99,7 +99,6 @@
             const makeImageElement = (file) => {
                 console.log(file);
                 if(typeof file != 'undefined' && file.filetype === 'image') {
-                    console.log("aaaa");
                     return `<img class="bd-placeholder-img card-img-top" width="100%" height="180" src="/upload/\${file.filename}" alt=\${file.fileoriginname}>`
                 }
 
