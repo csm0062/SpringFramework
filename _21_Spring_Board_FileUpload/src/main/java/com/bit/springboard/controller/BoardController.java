@@ -147,6 +147,7 @@ public class BoardController {
         } else {
             boardService = applicationContext.getBean("noticeServiceImpl", BoardService.class);
         }
+
         boardService.modify(boardDto, uploadFiles, changeFiles, originFiles);
 
         if(boardDto.getType().equals("free"))
@@ -200,13 +201,6 @@ public class BoardController {
 
         return returnMap;
     }
-
-
-
-
-
-
-
 
 
 }
