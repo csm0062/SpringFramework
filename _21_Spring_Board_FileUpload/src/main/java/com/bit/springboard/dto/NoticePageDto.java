@@ -8,7 +8,7 @@ public class NoticePageDto {
     public NoticePageDto(Criteria cri, int total) {
         this.cri = cri;
         this.total = total;
-
+        // 단위도 변환해줘야한다.
         this.endPage = (int)(Math.ceil((total / 1.0) / cri.getAmount()));
     }
 
