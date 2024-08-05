@@ -30,7 +30,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/board/notice-list.do">공지사항</a>
                     </li>
-
                     <c:choose>
                         <c:when test="${loginMember eq null}">
                             <li class="nav-item">
@@ -49,7 +48,6 @@
                             </li>
                         </c:otherwise>
                     </c:choose>
-
                 </ul>
             </div>
         </nav>

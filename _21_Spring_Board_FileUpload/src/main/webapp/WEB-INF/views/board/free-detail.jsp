@@ -55,6 +55,7 @@
                     <div class="form-group mt-3">
                         <label for="uploadFiles">파일첨부</label>
                         <input class="form-control" type="file" name="uploadFiles" id="uploadFiles" multiple>
+
                         <div id="image-preview">
                             <input type="file" id="changeFiles" name="changeFiles" style="display: none;"
                                    multiple>
@@ -337,6 +338,13 @@
 
             return div;
         }
+
+
+
+
+
+
+
 
 
 
